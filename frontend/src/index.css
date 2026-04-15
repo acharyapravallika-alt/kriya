@@ -1,0 +1,48 @@
+:root {
+  /* Premium Deep Dark / Cyber Theme */
+  --bg: #09090b;
+  --bg-gradient: radial-gradient(circle at 15% 50%, rgba(102, 252, 241, 0.05), transparent 25%),
+                 radial-gradient(circle at 85% 30%, rgba(236, 72, 153, 0.05), transparent 25%);
+  --card: rgba(24, 24, 27, 0.6);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --line: rgba(255, 255, 255, 0.1);
+  --text: #a1a1aa;
+  --text-h: #f4f4f5;
+  
+  --accent: #ec4899;
+  --accent-light: rgba(236, 72, 153, 0.15);
+  --accent-glow: rgba(236, 72, 153, 0.4);
+  
+  --primary: #2dd4bf;
+  --primary-light: rgba(45, 212, 191, 0.15);
+  
+  --radius: 16px;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  background-image: var(--bg-gradient);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-h);
+  margin-top: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: #27272a; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #3f3f46; }
