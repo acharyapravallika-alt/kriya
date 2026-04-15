@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Code‑assistant “CodeWise” – Deep Dive</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #effaf3;
+      --card: #ffffff;
+      --line: #d1f4e3;
+      --text: #223322;
+      --muted: #4a5a5a;
+      --accent: #a855f7;
+      --accent-light: #f3e8ff;
+      --primary: #22c55e;
+      --primary-light: #dcfce7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: linear-gradient(135deg, #effaf3 0%, #f3e8ff 100%);
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 800px;
+      margin: auto;
+      padding: 24px;
+    }
+    h1 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    pre {
+      background: #f0f9ff;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 12px 0;
+      overflow-x: auto;
+      border: 1px solid #bbf7d0;
+    }
+    code {
+      font-family: Consolas, Monaco, monospace;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 14px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">AI TOOL</div>
+    <h1>New AI code‑assistant “CodeWise” launched to auto‑refactor and explain your code</h1>
+    <div class="meta">Published 1 day ago · AI tools · CSE</div>
+
+    <p>CodeWise is a new AI‑powered code assistant that helps developers write, refactor, and understand code faster. It integrates directly into modern IDEs and provides real‑time suggestions, bug detection, and automatic refactoring.</p>
+
+    <p>Unlike simple linters, CodeWise reads your project’s context and suggests high‑level refactorings such as splitting large functions, moving logic to separate modules, and adding type hints and documentation. It also explains why a change is better, which is extremely helpful for students learning clean code.</p>
+
+    <h2>How CodeWise helps students</h2>
+    <p>For CSE and AI/ML students, CodeWise can:</p>
+    <ul>
+      <li>Highlight functions that are hard to test and suggest ways to simplify them.</li>
+      <li>Find performance bottlenecks in data‑processing pipelines and suggest more efficient structures.</li>
+      <li>Generate clear comments and docstrings so you can focus on logic instead of writing docs from scratch.</li>
+    </ul>
+
+    <h2>Simple before–after example</h2>
+    <p>Before refactor (no explanations):</p>
+    <pre><code>def process_data(data):
+    res = []
+    for x in data:
+        if x &gt; 0:
+            res.append(x ** 2)
+    return res</code></pre>
+
+    <p>After CodeWise’s suggestion:</p>
+    <pre><code># List comprehension: shorter, readable, and Pythonic
+def process_data(data):
+    return [x ** 2 for x in data if x &gt; 0]</code></pre>
+
+    <p>CodeWise explains the change in plain English, helping you understand list comprehensions and functional programming style while keeping your code clean.</p>
+
+    <p>Treat it like a “senior‑dev pair‑programming with you” powered by an LLM, rather than a replacement for your own learning and practice.</p>
+
+    <a href="index.html" class="back-link">← Back to TechFeed</a>
+  </div>
+</body>
+</html>

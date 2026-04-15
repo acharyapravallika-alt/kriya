@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LLM‑Based UI‑Builder – From Figma to React</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #effaf3;
+      --card: #ffffff;
+      --line: #d1f4e3;
+      --text: #223322;
+      --muted: #4a5a5a;
+      --accent: #a855f7;
+      --accent-light: #f3e8ff;
+      --primary: #22c55e;
+      --primary-light: #dcfce7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: linear-gradient(135deg, #effaf3 0%, #f3e8ff 100%);
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 800px;
+      margin: auto;
+      padding: 24px;
+    }
+    h1 {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .meta {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    p {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .benefit {
+      padding: 8px;
+      border-radius: 8px;
+      background: #f0f9ff;
+      border: 1px solid #bbf7d0;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 14px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="eyebrow">WEB DEVELOPMENT</div>
+    <h1>New LLM‑based UI‑builder lets students convert Figma‑like designs into React code</h1>
+    <div class="meta">Published 1 week ago · Web dev</div>
+
+    <p>This new tool allows you to upload a Figma‑style design (or even a screenshot of a layout) and automatically generates a React component tree with matching CSS or Tailwind classes. You can then use the generated code in your project and tweak it later.</p>
+
+    <h2>How it works</h2>
+    <p>The LLM‑based UI‑builder analyzes your design’s layout, colors, and hierarchy, and creates the corresponding JSX components along with responsive styles. It also tries to follow common React patterns such as separating layout and logic components.</p>
+
+    <p>Students can use this tool to quickly prototype landing pages, dashboards, and UI‑kits without spending hours on boilerplate layout code. You focus on the interactive logic and backend, while the tool handles the visual scaffolding.</p>
+
+    <h2>Benefits for CSE students</h2>
+    <div class="benefits">
+      <div class="benefit">Reduce time between design idea and working front‑end code.</div>
+      <div class="benefit">Learn by example from generated React components and Tailwind classes.</div>
+      <div class="benefit">Focus on app logic and backend while UI is generated.</div>
+      <div class="benefit">Speed up hackathon and project UIs without sacrificing learning.</div>
+    </div>
+
+    <p>Because the tool does not replace learning HTML, CSS, or React fundamentals, it’s a great “smart boilerplate generator” that helps you iterate faster while still exposing you to real code.</p>
+
+    <a href="index.html" class="back-link">← Back to TechFeed</a>
+  </div>
+</body>
+</html>
