@@ -24,6 +24,7 @@ function Header({ user, name }) {
         <button className="badge" onClick={() => navigate('/events')}>📅 Events</button>
         <button className="badge" onClick={() => navigate('/courses')}>🎓 Courses</button>
         <button className="badge" onClick={() => navigate('/podcasts')}>🎧 Podcasts</button>
+        <button className="badge" onClick={() => navigate('/practice')} style={{background: 'var(--primary)', color: 'var(--bg)'}}>💻 Practice Zone</button>
       </div>
     </header>
   );

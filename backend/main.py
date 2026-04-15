@@ -89,7 +89,56 @@ Return ONLY a valid JSON List where each item matches this schema exactly:
                 db.commit()
                 print("Opportunities generated and saved to DB.")
             except Exception as e:
-                print("Failed to generate tasks:", e)
+                print("Failed to generate opportunities:", e)
+            
+            try:
+                print("Generating 10 dynamic Practice Questions via Gemini...")
+                practice_prompt = """You are an expert technical interviewer at a FAANG company.
+Generate a JSON array of EXACTLY 10 highly practical, execution-heavy "LeetCode-style" algorithmic or system design practice Action Tasks.
+Return ONLY a valid JSON List where each item matches this schema exactly:
+{
+  "opportunity_type": "practice",
+  "signal": "Brief catchy title (e.g., Optimize React Render)",
+  "meaning": "Why this matters in production.",
+  "impact": "Career impact for the developer.",
+  "relevance_score": 50,
+  "estimated_time": "30 mins",
+  "action_path": ["Understand the problem constraints", "Design the optimal solution", "Implement and test edge cases"],
+  "expected_output": "Working code submission",
+  "proof_desc": "What the user must submit as proof (e.g., Link to code, 1-line explanation).",
+  "difficulty": "medium",
+  "primary_skill": "The main skill tested (e.g., React, System Design)"
+}
+"""
+                practice_res = gemini_client.models.generate_content(
+                    model='gemini-2.5-flash',
+                    contents=practice_prompt,
+                    config=types.GenerateContentConfig(
+                        response_mime_type="application/json",
+                    ),
+                )
+                practice_data = json.loads(practice_res.text)
+                for t in practice_data:
+                    db_task = models.ActionTask(
+                        opportunity_type=t.get("opportunity_type", "practice"),
+                        signal=t["signal"],
+                        meaning=t["meaning"],
+                        impact=t["impact"],
+                        relevance_score=t.get("relevance_score", 50),
+                        estimated_time=t.get("estimated_time", "30 mins"),
+                        action_path=t.get("action_path", []),
+                        opportunity_metadata={},
+                        expected_output=t.get("expected_output", ""),
+                        proof_desc=t["proof_desc"],
+                        difficulty=t["difficulty"],
+                        domain_target="CSE",
+                        primary_skill=t["primary_skill"]
+                    )
+                    db.add(db_task)
+                db.commit()
+                print("Practice questions generated and saved to DB.")
+            except Exception as e:
+                print("Failed to generate practice tasks:", e)
 
     # Initialize MVP test user if doesn't exist
     user = db.query(models.User).filter(models.User.id == "student_123").first()
@@ -175,7 +224,7 @@ def submit_proof(req: schemas.SubmitProofRequest, db: Session = Depends(get_db))
     
     if gemini_client and req.submission_content:
         task = db.query(models.ActionTask).filter_by(id=req.task_id).first()
-        task_desc = task.task_desc if task else "Generic engineering task."
+        task_desc = str(task.action_path) if task else "Generic engineering task."
         proof_desc = task.proof_desc if task else "No specific proof description."
         
         prompt = f"""You are an expert engineering mentor. Evaluate the user's submission for the following task.

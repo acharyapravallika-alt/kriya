@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import Landing from './pages/Landing'
 import Home from './pages/Home'
 import FeedPage from './pages/FeedPage'
+import PracticePage from './pages/PracticePage'
 import ExecutionMode from './pages/ExecutionMode'
 import Profile from './pages/Profile'
 import './App.css'
@@ -69,6 +70,7 @@ function App() {
       <Route path="/events" element={isIntroComplete ? <FeedPage category="event" {...feedProps} /> : <Navigate to="/" />} />
       <Route path="/courses" element={isIntroComplete ? <FeedPage category="course" {...feedProps} /> : <Navigate to="/" />} />
       <Route path="/podcasts" element={isIntroComplete ? <FeedPage category="podcast" {...feedProps} /> : <Navigate to="/" />} />
+      <Route path="/practice" element={isIntroComplete ? <PracticePage {...feedProps} /> : <Navigate to="/" />} />
       
       <Route path="/execute/:taskId" element={isIntroComplete ? <ExecutionMode user={user} feed={feed} completedTasks={completedTasks} setCompletedTasks={setCompletedTasks} setUser={setUser} /> : <Navigate to="/" />} />
       <Route path="/profile" element={isIntroComplete ? <Profile user={user} /> : <Navigate to="/" />} />
